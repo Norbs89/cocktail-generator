@@ -17,7 +17,7 @@ const IngredientChoice = function(props) {
 const radioGenerator = (props, header) => {
   const refObj = {};
   return (
-    <div>
+    <div key={header}>
       <h3>{header}</h3>
 
       {props.drinks.map(drink => {
@@ -29,7 +29,9 @@ const radioGenerator = (props, header) => {
                 type="radio"
                 name={header}
                 value={drink[header]}
-                onChange={props.handleChange}
+                onChange={event => {
+                  props.handleChange(header, event.target.value);
+                }}
               />
               {drink[header]}
             </label>

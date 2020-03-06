@@ -6,7 +6,11 @@ import IngredientChoice from "./components/ingredientChoice";
 
 class App extends React.Component {
   state = {
-    userInput: "",
+    userInput: {
+      spirit: "",
+      mixer: "",
+      extra: ""
+    },
     outputRecipe: "",
     drinkName: "",
     isOpen: false,
@@ -48,8 +52,10 @@ class App extends React.Component {
       }
     ]
   };
-  handleChange = event => {
-    this.setState({ userInput: event.target.value });
+  handleChange = (header, value) => {
+    this.setState(currentState => {
+      return (currentState.userInput[header] = value);
+    });
   };
 
   closePopup = event => {
@@ -57,8 +63,13 @@ class App extends React.Component {
   };
 
   generateRecipe = () => {
+    const { spirit, mixer, extra } = this.state.userInput;
     this.state.drinks.forEach(drink => {
-      if (this.state.userInput === drink.spirit) {
+      if (
+        spirit === drink.spirit &&
+        mixer === drink.mixer &&
+        extra === drink.extra
+      ) {
         this.setState({
           outputRecipe: recipes[drink.recipe],
           drinkName: drink.name,
