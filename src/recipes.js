@@ -1,8 +1,6 @@
 /** @format */
 
 const recipes = {
-  bloodyMary:
-    "1: Measure the vodka, tomato juice and a touch of lemon juice and pour it straight onto the ice. 2: Add 3 shakes of Tabasco (or more if you like it very spicy) and stir until the outside of the jug feels cold, then strain the cocktail into 2 tall glasses. 3: Top up with fresh ice, add a celery stick and lemon slice to both glasses and enjoy.",
   pinaColada:
     "Pulse all the ingredients along with a handful of ice in a blender until smooth. Pour into a tall glass and garnish as you like.",
   appletini:

@@ -45,22 +45,9 @@ const IngredientChoice = function(props) {
 
 class App extends React.Component {
   state = {
-    ingredients: [
-      {
-        spirit: "vodka",
-        mixer: "tomato juice",
-        extra: "tabasco",
-        drink: "bloodyMary"
-      },
-      {
-        spirit: "rum",
-        mixer: "pineapple juice",
-        extra: "piece of fruit",
-        drink: "pinaColada"
-      }
-    ],
     userInput: "",
     outputRecipe: "",
+    drinkName: "",
     isOpen: false,
     drinks: [
       {
@@ -109,11 +96,11 @@ class App extends React.Component {
   };
 
   generateRecipe = () => {
-    const recipe = "";
-    this.state.ingredients.forEach(ingredient => {
-      if (this.state.userInput === ingredient.spirit) {
+    this.state.drinks.forEach(drink => {
+      if (this.state.userInput === drink.spirit) {
         this.setState({
-          outputRecipe: recipes[ingredient.drink],
+          outputRecipe: recipes[drink.recipe],
+          drinkName: drink.name,
           isOpen: !this.state.isOpen
         });
       }
@@ -121,11 +108,10 @@ class App extends React.Component {
   };
 
   render() {
-    console.log(this.state.outputRecipe);
     return (
       <div>
         <IngredientChoice
-          ingredients={this.state.ingredients}
+          drinks={this.state.drinks}
           userInput={this.state.userInput}
           handleChange={this.handleChange}
         />
@@ -134,7 +120,7 @@ class App extends React.Component {
 
         <Modal className="popup" isOpen={this.state.isOpen}>
           <div className="popup__text">
-            <h2>Drink name</h2>
+            <h2>{this.state.drinkName}</h2>
             <p>{this.state.outputRecipe}</p>
           </div>
           <button onClick={this.closePopup}>Close</button>
