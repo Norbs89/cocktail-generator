@@ -54,7 +54,12 @@ class App extends React.Component {
   };
   handleChange = (header, value) => {
     this.setState(currentState => {
-      return (currentState.userInput[header] = value);
+      return {
+        userInput: {
+          ...currentState.userInput,
+          [header]: value
+        }
+      };
     });
   };
 
