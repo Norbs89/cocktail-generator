@@ -6,38 +6,30 @@ import recipes from "./recipes.js";
 import Modal from "react-modal";
 
 const IngredientChoice = function(props) {
+  const refObj = {};
   return (
     <div>
       <h1>Cocktail Generator</h1>
       <form>
         <h3>Spirits</h3>
-        <label>
-          <input
-            type="radio"
-            name="spirit"
-            value="vodka"
-            onChange={props.handleChange}
-          ></input>
-          vodka
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="spirit"
-            value="rum"
-            onChange={props.handleChange}
-          ></input>
-          rum
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="spirit"
-            value="tequila"
-            onChange={props.handleChange}
-          ></input>
-          tequila
-        </label>
+        {props.drinks.map(drink => {
+          if (!refObj[drink.spirit]) {
+            refObj[drink.spirit] = true;
+            return (
+              <label key={drink.spirit}>
+                <input
+                  type="radio"
+                  name="spirit"
+                  value={drink.spirit}
+                  onChange={props.handleChange}
+                />
+                {drink.spirit}
+              </label>
+            );
+          } else {
+            return null;
+          }
+        })}
       </form>
     </div>
   );
@@ -118,7 +110,7 @@ class App extends React.Component {
 
         <button onClick={this.generateRecipe}>Generate Recipe</button>
 
-        <Modal className="popup" isOpen={this.state.isOpen}>
+        <Modal className="popup" ariaHideApp={false} isOpen={this.state.isOpen}>
           <div className="popup__text">
             <h2>{this.state.drinkName}</h2>
             <p>{this.state.outputRecipe}</p>
