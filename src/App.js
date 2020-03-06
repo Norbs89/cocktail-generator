@@ -1,8 +1,6 @@
-/** @format */
-
 import React from "react";
 import "./App.css";
-import recipes from "./recipes.js";
+import { recipes, drinks } from "./drinksDB.js";
 import Modal from "react-modal";
 import IngredientChoice from "./components/ingredientChoice";
 
@@ -16,45 +14,9 @@ class App extends React.Component {
     outputRecipe: "",
     drinkName: "",
     extraOffered: "",
-    isOpen: false,
-    drinks: [
-      {
-        name: "Appletini",
-        spirit: "vodka",
-        mixer: "cloudy apple juice",
-        extra: "lemon juice",
-        recipe: "appletini"
-      },
-      {
-        name: "PiNa Colada",
-        spirit: "rum",
-        mixer: "pineapple juice",
-        extra: "piece of fruit",
-        recipe: "pinaColada"
-      },
-      {
-        name: "Tequila Sunrise",
-        spirit: "tequila",
-        mixer: "orange juice",
-        extra: "grenadine",
-        recipe: "tequilaSunrise"
-      },
-      {
-        name: "Screwdriver",
-        spirit: "vodka",
-        mixer: "orange juice",
-        extra: "bitter liqueur",
-        recipe: "screwdriver"
-      },
-      {
-        name: "Rum Babalu",
-        spirit: "rum",
-        mixer: "ginger beer",
-        extra: "bitter liqueur",
-        recipe: "rumBabalu"
-      }
-    ]
+    isOpen: false
   };
+
   handleChange = (header, value) => {
     this.setState(currentState => {
       return {
@@ -72,7 +34,7 @@ class App extends React.Component {
 
   generateRecipe = () => {
     const { spirit, mixer } = this.state.userInput;
-    this.state.drinks.forEach(drink => {
+    drinks.forEach(drink => {
       if (spirit === drink.spirit && mixer === drink.mixer) {
         this.setState({
           extraOffered: drink.extra,
@@ -85,24 +47,31 @@ class App extends React.Component {
   };
 
   render() {
+    const {
+      userInput,
+      isOpen,
+      drinkName,
+      outputRecipe,
+      extraOffered
+    } = this.state;
     return (
       <div>
         <IngredientChoice
-          drinks={this.state.drinks}
-          userInput={this.state.userInput}
+          drinks={drinks}
+          userInput={userInput}
           handleChange={this.handleChange}
         />
 
         <button onClick={this.generateRecipe}>Generate Recipe</button>
 
-        <Modal className="popup" ariaHideApp={false} isOpen={this.state.isOpen}>
+        <Modal className="popup" ariaHideApp={false} isOpen={isOpen}>
           <div className="popup__text">
-            <h2>{this.state.drinkName}</h2>
-            <p>{this.state.outputRecipe}</p>
-            {this.state.userInput.extra !== this.state.extraOffered && (
+            <h2>{drinkName}</h2>
+            <p>{outputRecipe}</p>
+            {userInput.extra !== extraOffered && (
               <p>
-                top tip: the user choose {this.state.userInput.extra} but we
-                want to offer {this.state.extraOffered}
+                top tip: the user choose {userInput.extra} but we want to offer{" "}
+                {extraOffered}
               </p>
             )}
           </div>

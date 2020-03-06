@@ -1,5 +1,3 @@
-/** @format */
-
 const recipes = {
   pinaColada:
     "Pulse all the ingredients along with a handful of ice in a blender until smooth. Pour into a tall glass and garnish as you like.",
@@ -13,4 +11,42 @@ const recipes = {
     "Add all ingredients in a shaker except ginger beer, add ice and shake well until chilled. Strain over fresh ice in a double rocks glass, top with ginger beer and garnish with an orange peel."
 };
 
-export default recipes;
+const drinks = [
+  {
+    name: "Appletini",
+    spirit: "vodka",
+    mixer: "cloudy apple juice",
+    extra: "lemon juice",
+    recipe: "appletini"
+  },
+  {
+    name: "PiNa Colada",
+    spirit: "rum",
+    mixer: "pineapple juice",
+    extra: "piece of fruit",
+    recipe: "pinaColada"
+  },
+  {
+    name: "Tequila Sunrise",
+    spirit: "tequila",
+    mixer: "orange juice",
+    extra: "grenadine",
+    recipe: "tequilaSunrise"
+  },
+  {
+    name: "Screwdriver",
+    spirit: "vodka",
+    mixer: "orange juice",
+    extra: "bitter liqueur",
+    recipe: "screwdriver"
+  },
+  {
+    name: "Rum Babalu",
+    spirit: "rum",
+    mixer: "ginger beer",
+    extra: "bitter liqueur",
+    recipe: "rumBabalu"
+  }
+];
+
+export { recipes, drinks };
