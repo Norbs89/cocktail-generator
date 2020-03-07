@@ -54,6 +54,7 @@ class App extends React.Component {
       outputRecipe,
       extraOffered
     } = this.state;
+
     return (
       <div>
         <IngredientChoice
@@ -68,7 +69,7 @@ class App extends React.Component {
           <div className="popup__text">
             <h2>{drinkName}</h2>
             <p>{outputRecipe}</p>
-            {userInput.extra !== extraOffered && (
+            {userInput.extra === extraOffered || (
               <p>
                 top tip: the user choose {userInput.extra} but we want to offer{" "}
                 {extraOffered}

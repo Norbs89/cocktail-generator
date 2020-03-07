@@ -15,15 +15,27 @@ const recipes = {
     "Pour 45 ml rum and 60 ml orange juice into glass over ice. Slowly pour 15ml of grenadine syrup around the inside edge of the glass. It will sink and gradually rise to mix with the other ingredients.",
   toronha:
     "Pour 50ml Tequila, 50ml grapefruit juice, 1 tablespoon grenadine syrup (and ideally 10ml Triple Sec, if you have it on hand) into a blender with ice. Blend well.Strain into a chilled glass. A very tart combination, but actually works amazingly well. A must try!",
-  carioca:
-    "Shake 1/2 parts of light rum, 1 part pineapple juice and 1/2 parts Lime juice together with ice and strain into a chilled glass. For best results, add a touch of simple sugar syrup and a dash of bitter liqueur too!"
+  appleDaiquiri:
+    "Shake 60ml light rum, 45ml apple juice, 15ml freshly squeezed lime juice together with ice and fine strain into a chilled glass. For best taste, add a touch of sugar syrup to the mixture.",
+  vodkaCrush:
+    "This recipe is best prepared with fresh pineapple but can be substituted with 100% pineapple juice. Place the pineapple flesh/juice,100ml vodka, a bit of sugar,20ml lemon juice (and mint leaves - optional) in a blender and blend to combine. Pour the mixture into a plastic container or ice-cream tray and freeze for 1-2 hours until firm on the outside and still liquid in the centre. Tip the mixture into a bowl and beat strongly, then keep in the fridge until required.",
+  greyhound:
+    "A simple cocktail with only 3 ingredients. The balance in measurements is important and it's what makes this cocktail super tasty. Mix 1 parts of vodka with 4 parts of grapefruit juice and squeeze some fresh lime into it.",
+  grapefruitDaiquiri:
+    "Shake 60ml white rum, 40ml grapefruit juice and 10ml lime juice together with ice and fine strain into a chilled glass. For best taste, add a touch of sugar syrup to the mixture.",
+  appleMargarita:
+    "This cocktail is best served with a splash of apple liqueur added to the mix. Pour 1 parts of tequila,1 parts of apple juice, a splash of lemon juice (or any other sour mixer) and ideally 1 parts of apple liqueur together with ice into a blender and blend until smooth. Serve it in a chilled glass.",
+  patron:
+    "This cocktail is best served with a splash of orange liqueur added to the mix. Pour one parts of tequila over ice, top it off with 8 parts of pineapple juice and squeeze one fresh lime into the glass. Stir and serve.",
+  gingerMargarita:
+    "Add 1 parts of tequila, 1 parts of lime juice, 3 parts of ginger beer, simple syrup (if you have it at hand), and ice to a large glass or cocktail shaker and stir vigorously. Don't shake with a lid on or it will erupt from the ginger beer carbonation. Pour it into serving glass with a few ice cubes. Garnish with a lime wedge and serve immediately."
 };
 
 const drinks = [
   {
     name: "Appletini",
     spirit: "vodka",
-    mixer: "cloudy apple juice",
+    mixer: "apple juice",
     extra: "lemon juice",
     recipe: "appletini"
   },
@@ -77,11 +89,53 @@ const drinks = [
     recipe: "toronha"
   },
   {
-    name: "Carioca Hawaiian",
+    name: "Apple Daiquiri",
     spirit: "rum",
+    mixer: "apple juice",
+    extra: "lime juice",
+    recipe: "appleDaiquiri"
+  },
+  {
+    name: "Pineapple vodka crush",
+    spirit: "vodka",
+    mixer: "pineapple juice",
+    extra: "lemon juice",
+    recipe: "vodkaCrush"
+  },
+  {
+    name: "Vodka Greyhound",
+    spirit: "vodka",
+    mixer: "grapefruit juice",
+    extra: "lime juice",
+    recipe: "greyhound"
+  },
+  {
+    name: "Grapefruit Daiquiri",
+    spirit: "rum",
+    mixer: "grapefruit juice",
+    extra: "lime juice",
+    recipe: "grapefruitDaiquiri"
+  },
+  {
+    name: "Apple Margarita",
+    spirit: "tequila",
+    mixer: "apple juice",
+    extra: "lemon juice",
+    recipe: "appleMargarita"
+  },
+  {
+    name: "Patron Pineapple",
+    spirit: "tequila",
     mixer: "pineapple juice",
     extra: "lime juice",
-    recipe: "carioca"
+    recipe: "patron"
+  },
+  {
+    name: "GINGER BEER MARGARITA",
+    spirit: "tequila",
+    mixer: "ginger beer",
+    extra: "lime juice",
+    recipe: "gingerMargarita"
   }
 ];
 
