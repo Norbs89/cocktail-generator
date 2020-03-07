@@ -4,7 +4,9 @@ const IngredientChoice = function(props) {
   const refArray = ["spirit", "mixer", "extra"];
   return (
     <div>
-      <h1>Cocktail Generator</h1>
+      <div className="header">
+        <h1>Cocktail Generator</h1>
+      </div>
       <form>
         {refArray.map(header => {
           return radioGenerator(props, header);
@@ -17,7 +19,7 @@ const IngredientChoice = function(props) {
 const radioGenerator = (props, header) => {
   const refObj = {};
   return (
-    <div key={header}>
+    <div key={header} class="section">
       <h3>{header}</h3>
 
       {props.drinks.map(drink => {
