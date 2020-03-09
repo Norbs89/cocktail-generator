@@ -3,7 +3,7 @@ import React from "react";
 const IngredientChoice = function(props) {
   const refArray = ["spirit", "mixer", "extra"];
   return (
-    <div>
+    <div className="mainDiv">
       <div className="header">
         <h1>Cocktail Generator</h1>
       </div>

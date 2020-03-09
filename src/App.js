@@ -63,7 +63,9 @@ class App extends React.Component {
           handleChange={this.handleChange}
         />
 
-        <button onClick={this.generateRecipe}>Generate Recipe</button>
+        <button className="mainButton" onClick={this.generateRecipe}>
+          Generate Recipe
+        </button>
 
         <Modal className="popup" ariaHideApp={false} isOpen={isOpen}>
           <div className="popup__text">
@@ -76,7 +78,9 @@ class App extends React.Component {
               </p>
             )}
           </div>
-          <button onClick={this.closePopup}>Close</button>
+          <button className="modalButton" onClick={this.closePopup}>
+            Close
+          </button>
         </Modal>
       </div>
     );
