@@ -2,7 +2,8 @@ import React from "react";
 import "./App.css";
 import { recipes, drinks } from "./drinksDB.js";
 import Modal from "react-modal";
-import IngredientChoice from "./components/ingredientChoice";
+import MainContent from "./components/MainContent";
+import { Container, Row, Col, Card } from "react-bootstrap";
 
 class App extends React.Component {
   state = {
@@ -29,7 +30,9 @@ class App extends React.Component {
   };
 
   closePopup = event => {
-    this.setState({ isOpen: !this.state.isOpen });
+    this.setState(currentState => {
+      return { isOpen: !currentState.isOpen };
+    });
   };
 
   generateRecipe = () => {
@@ -40,7 +43,7 @@ class App extends React.Component {
           extraOffered: drink.extra,
           outputRecipe: recipes[drink.recipe],
           drinkName: drink.name,
-          isOpen: !this.state.isOpen
+          isOpen: true
         });
       }
     });
@@ -56,16 +59,21 @@ class App extends React.Component {
     } = this.state;
 
     return (
-      <div className="allContent">
-        <IngredientChoice
-          drinks={drinks}
-          userInput={userInput}
-          handleChange={this.handleChange}
-        />
-
-        <button className="mainButton" onClick={this.generateRecipe}>
-          Generate Recipe
-        </button>
+      <>
+        <Container>
+          <Row>
+            <Col className="allContent">
+              <MainContent
+                drinks={drinks}
+                userInput={userInput}
+                handleChange={this.handleChange}
+              />
+              <button className="recipe-button" onClick={this.generateRecipe}>
+                Generate Recipe
+              </button>
+            </Col>
+          </Row>
+        </Container>
 
         <Modal className="popup" ariaHideApp={false} isOpen={isOpen}>
           <div className="popup__text">
@@ -73,8 +81,8 @@ class App extends React.Component {
             <p>{outputRecipe}</p>
             {userInput.extra === extraOffered || (
               <p>
-                top tip: the user choose {userInput.extra} but we want to offer{" "}
-                {extraOffered}
+                Top Tip: For best results, instead of {userInput.extra} try
+                using {extraOffered} for a more authentic cocktail experience!
               </p>
             )}
           </div>
@@ -82,7 +90,7 @@ class App extends React.Component {
             Close
           </button>
         </Modal>
-      </div>
+      </>
     );
   }
 }
