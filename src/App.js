@@ -3,7 +3,7 @@ import "./App.css";
 import { recipes, drinks } from "./drinksDB.js";
 import Modal from "react-modal";
 import MainContent from "./components/MainContent";
-import { Container, Row, Col, Card } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
 class App extends React.Component {
   state = {
