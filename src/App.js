@@ -76,7 +76,7 @@ class App extends React.Component {
         </Container>
 
         <Modal className="popup" ariaHideApp={false} isOpen={isOpen}>
-          <div className="popup__text">
+          <div className="popup-text">
             <h2>{drinkName}</h2>
             <p>{outputRecipe}</p>
             {userInput.extra === extraOffered || (
@@ -86,7 +86,7 @@ class App extends React.Component {
               </p>
             )}
           </div>
-          <button className="modalButton" onClick={this.closePopup}>
+          <button className="modal-button" onClick={this.closePopup}>
             Close
           </button>
         </Modal>
