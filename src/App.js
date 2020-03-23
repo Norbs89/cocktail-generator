@@ -61,7 +61,7 @@ class App extends React.Component {
     return (
       <>
         <Container>
-          <Row>
+          <Row className="justify-content-md-center">
             <Col className="allContent">
               <MainContent
                 drinks={drinks}
@@ -76,19 +76,24 @@ class App extends React.Component {
         </Container>
 
         <Modal className="popup" ariaHideApp={false} isOpen={isOpen}>
-          <div className="popup-text">
-            <h2>{drinkName}</h2>
-            <p>{outputRecipe}</p>
-            {userInput.extra === extraOffered || (
-              <p>
-                Top Tip: For best results, instead of {userInput.extra} try
-                using {extraOffered} for a more authentic cocktail experience!
-              </p>
-            )}
-          </div>
-          <button className="modal-button" onClick={this.closePopup}>
-            Close
-          </button>
+          <Container>
+            <Row className="justify-content-center">
+              <div className="popup-text">
+                <h2>{drinkName}</h2>
+                <p>{outputRecipe}</p>
+                {userInput.extra === extraOffered || (
+                  <p>
+                    Top Tip: For best results, instead of {userInput.extra} try
+                    using {extraOffered} for a more authentic cocktail
+                    experience!
+                  </p>
+                )}
+              </div>
+              <button className="modal-button" onClick={this.closePopup}>
+                Close
+              </button>
+            </Row>
+          </Container>
         </Modal>
       </>
     );
